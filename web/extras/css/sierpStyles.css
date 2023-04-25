@@ -1,0 +1,91 @@
+
+.click-opcty {
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.click-opcty:hover {
+	fill-opacity: 0.5;
+}
+
+.click-outln {
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.click-outln:hover {
+	stroke: #eaeaea;
+}
+
+.pdcbtntxt {
+	font-family: sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	text-anchor: middle;
+	fill: #4e3c65;
+}
+
+.fred {
+  fill: #F44336;
+}
+.forange {
+  fill: #FF9800;
+}
+.fyellow {
+  fill: #FFEB3B;
+}
+.fgreen {
+  fill: #4CAF50;
+}
+.fblue {
+  fill: #2196F3;
+}
+.findigo {
+  fill: #673AB7;
+}
+.fviolet {
+  fill: #9C27B0;
+}
+.fpink {
+  fill: #E91E63;
+}
+.fteal {
+  fill: #009688;
+}
+.fbrown {
+  fill: #795548;
+}
+.fgrey {
+  fill: #9E9E9E;
+}
+.fblack {
+  fill: #202020;
+}
+
+.fblu {
+  fill: #085688;
+}
+.fgry {
+  fill: #333e5e;
+}
+
+.tx36 {
+  font-size: 36px;
+}
+.tx24 {
+  font-size: 24px;
+}
+.tx14 {
+  font-size: 14px;
+}
+
+.txs {
+  text-anchor: start;
+}
+.txc {
+  text-anchor: middle;
+}
+.txe {
+  text-anchor: end;
+}
+

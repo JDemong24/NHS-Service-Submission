@@ -1,0 +1,81 @@
+<html>
+
+<head>
+  	<title>Sierpinski Triangle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="css/sierpStyles.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/velocity.min.js"></script>
+    <script type="text/javascript" src="js/piday.js"></script>
+    <script type="text/javascript" src="js/sierp.js"></script>
+</head>
+
+<body>
+
+<div id="mainDiv">
+
+	<div id="innerDiv">
+
+    <svg id="sierpinski" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 500">
+
+      <g id="10-btn" class="click-opcty" onclick="startTriangle(evt,10,700)" visibility="visible">
+        <rect x="80" y="100" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="10-text" text-anchor="middle" x="130" y="113.5" class="pdcbtntxt">10</text>
+      </g>
+
+      <g id="1000-btn" class="click-opcty" onclick="startTriangle(evt,1000,10)" visibility="visible">
+        <rect x="80" y="150" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="1000-text" text-anchor="middle" x="130" y="163.5" class="pdcbtntxt">1000</text>
+      </g>
+
+      <g id="5000-btn" class="click-opcty" onclick="startTriangle(evt,5000,1)" visibility="visible">
+        <rect x="80" y="200" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="5000-text" text-anchor="middle" x="130" y="213.5" class="pdcbtntxt">5000</text>
+      </g>
+
+      <g id="10000-btn" class="click-opcty" onclick="startTriangle(evt,10000,1)" visibility="visible">
+        <rect x="80" y="250" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="10000-text" text-anchor="middle" x="130" y="263.5" class="pdcbtntxt">10000</text>
+      </g>
+
+      <g id="refresh-btn" class="click-opcty" onclick="reloadPage(evt)">
+        <rect x="750" y="100" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="reload-text" text-anchor="middle" x="800" y="113.5" class="pdcbtntxt">refresh page</text>
+      </g>
+
+      <g id="r1-btn" class="click-opcty" onclick="setRadius(evt,1)">
+        <rect x="750" y="200" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="r1-text" text-anchor="middle" x="800" y="213.5" class="pdcbtntxt">r = 1</text>
+      </g>
+
+      <g id="r2-btn" class="click-opcty" onclick="setRadius(evt,2)">
+        <rect x="750" y="250" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="r2-text" text-anchor="middle" x="800" y="263.5" class="pdcbtntxt">r = 2</text>
+      </g>
+
+      <g id="r5-btn" class="click-opcty" onclick="setRadius(evt,5)">
+        <rect x="750" y="300" width="100" height="20" rx="5" ry="5" stroke="#9394b6" fill="#eaeaea"/>
+        <text id="r5-text" text-anchor="middle" x="800" y="313.5" class="pdcbtntxt">r = 5</text>
+      </g>
+
+      <rect x="0" y="0" width="900" height="500" stroke="#cccccc" fill="none"/>
+
+      <circle id="cir0" class="click-opcty" onclick="toggleColor(evt,0)" cx="450" cy="23" r="6" stroke="#666666" fill="#202020" fill-opacity="1"/>
+      <circle id="cir1" class="click-opcty" onclick="toggleColor(evt,1)" cx="194" cy="471" r="6" stroke="#666666" fill="#202020" fill-opacity="1"/>
+      <circle id="cir2" class="click-opcty" onclick="toggleColor(evt,2)" cx="706" cy="471" r="6" stroke="#666666" fill="#202020" fill-opacity="1"/>
+
+      <text id="txt1" x="50" y="30" class="fblu tx24 txs">Sierpinkski Triangle</text>
+      <text id="txt2" x="50" y="70" class="fblu tx14 txs">Points to Plot</text>
+      <text id="txt3" x="700" y="170" class="fblu tx14 txs">Size of Points: r = 1</text>
+
+
+
+    </svg>
+
+	</div>
+
+</div>
+
+</body>
+
+</html>

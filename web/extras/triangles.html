@@ -1,0 +1,43 @@
+<svg id="puzzle2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 600">
+
+  <symbol id="clock">
+    <circle id="face" cx="0" cy="0" r="45"/>
+    <line id="hour" x1="0" y1="0" x2="0" y2="-25" />
+    <line id="min" x1="0" y1="0" x2="0" y2="-35" />
+    <line id="sec" x1="0" y1="0" x2="0" y2="-40" />
+    <circle id="dot" cx="0" cy="0" r="3"/>
+  </symbol>
+
+  <symbol id="sglb-0">
+    <circle cx="0" cy="0" r="45" stroke="#333333" fill="#eaeaea"/>
+    <ellipse cx="0" cy="0" rx="30" ry="45" stroke="#333333" fill="none"/>
+    <ellipse cx="0" cy="0" rx="15" ry="45" stroke="#333333" fill="none"/>
+    <line x1="0" y1="-45" x2="0" y2="45" stroke="#333333" fill="none"/>
+    <path d="M -38,24 A 45 17 1 0 0 38,24" stroke="#333333" fill="none"/>
+    <path d="M -45,0 A 45 15 1 0 0 45,0" stroke="#333333" fill="none"/>
+    <path d="M -43,-15 A 45 15 1 0 0 43,-15" stroke="#333333" fill="none"/>
+    <path d="M -34,-30 A 45 15 1 0 0 34,-30" stroke="#333333" fill="none"/>
+  </symbol>
+
+  <symbol id="s15">
+    <polygon points="0,0 289,0 289,-78 0,0" fill="#0038ff" fill-opacity=".5" />
+  </symbol>
+  <symbol id="s30">
+    <polygon points="0,0 260,0 260,-150 0,0" fill="#00b85f" fill-opacity=".5" />
+  </symbol>
+  <symbol id="s45">
+    <polygon points="0,0 212,0 212,-212 0,0" fill="#9440ff" fill-opacity=".5" />
+  </symbol>
+
+  <symbol id="sbtn-0">
+    <rect x="-50" y="-10" width="100" height="29" rx="5" ry="5" class="sdarkblue flightgrey"/>
+    <text id="tbtn-0" x="0" y="10" class="tx16 txi">Continue</text>
+  </symbol>
+
+  <!-- start the puzzle -->
+
+  <use id="btn-0" class="clickable" onclick="continueClicked(evt,2,1)" xlink:href="#sbtn-0" x="500" y="350" visibility="visible"/>
+
+  <use id="clk1" class="clickable" onclick="clockClicked(evt)" xlink:href="#clock" x="500" y="800" />
+
+</svg>
