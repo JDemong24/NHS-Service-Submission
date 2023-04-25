@@ -1,6 +1,6 @@
-CREATE DATABASE `piday` DEFAULT CHARSET=latin1;
+CREATE DATABASE `nhs` DEFAULT CHARSET=latin1;
 
-USE `piday`;
+USE `nhs`;
 
 CREATE TABLE `progress` (
   `id` int NOT NULL AUTO_INCREMENT,
