@@ -1,0 +1,47 @@
+.alert-position {
+    display: none;
+    position: fixed;
+    left: 50%;
+    margin-left: -250px;
+    top: 100px;
+    width: 500px;
+    z-index: 10000;
+}
+
+.fixed-width {
+    font-family: Courier, monospace;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.ticket {
+    position: relative;
+    height: 150px;
+    width: 300px;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 3px;
+    font-family: 'Candal', sans-serif;
+}
+
+.ticket:after,
+.ticket:before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 20px);
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+.ticket:before {
+    left: -20px;
+}
+
+.ticket:after {
+    right: -20px;
+}

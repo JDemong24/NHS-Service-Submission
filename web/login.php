@@ -11,57 +11,8 @@
 ?>
 
 <div class="jumbotron col-md-8 col-md-offset-2">
-    <h2>Welcome to the Pi Day Challenge!</h2>
-
-    <p>
-        The 2023 Challenge is here and we've got a great new feature:
-        <strong><a href="index.php?content=releaseNotes">Private Leader Boards</a></strong>!
-        And as always, you can go back to previous years' puzzles. Just go to
-        <strong>Settings</strong> and change the <strong>Challenge Year</strong>.
-    </p>
-
+    <h2>NHS Service Submission Site</h2>
 <?php
-
-/*
-    <div style="text-align: center;">
-        <h1 style="font-family: Courier;" id="countdown"></h1>
-    </div>
-
-    <script>
-	// This countdown script was taken from https://www.w3schools.com/howto/howto_js_countdown.asp
-
-	// Set the date we're counting down to (need to adjust for Eastern time)
-	var countDownDate = new Date("Mar 14, 2022 6:00:00").getTime();
-
-	// Update the count down every 1 second
-	var x = setInterval(function() {
-
-	  // Get today's date and time
-	  var now = new Date().getTime();
-
-	  // Find the distance between now an the count down date
-	  var distance = countDownDate - now;
-
-	  // Time calculations for days, hours, minutes and seconds
-	  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-	  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-	  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-	  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-	  // Display the result in the element with id="demo"
-	  $("#countdown").text(("00" + days).slice (-2) + ":" +
-	                       ("00" + hours).slice (-2) + ":" +
-						   ("00" + minutes).slice (-2) + ":" +
-						   ("00" + seconds).slice (-2));
-
-	  // If the count down is finished, write some text
-	  if (distance < 0) {
-	    clearInterval(x);
-	    $("#countdown").text("It's here!");
-	  }
-  	}, 500);
-	</script>
-*/
 
 ?>
 

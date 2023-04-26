@@ -11,7 +11,6 @@
 ?>
 
 <div class="jumbotron col-md-8 col-md-offset-2">
-    <h2>Contact the Pi Day Challenge Team</h2>
-    <p>The Pi Day Challenge is maintained by a small team.</p>
-    <p>If you would like to contact us, please email <a href="mailto:pidaychallenge@gmail.com">pidaychallenge@gmail.com</a>.</p>
+    <h2>Contact the Site Developer or NHS Pillars</h2>
+    <p>If you would like to contact us, please email <a href="mailto:pidaychallenge@gmail.com">jdemong24@hanoverstudents.org</a>.</p>
 </div>

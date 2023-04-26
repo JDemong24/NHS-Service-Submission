@@ -36,7 +36,7 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
         <script src="https://apis.google.com/js/platform.js" async defer></script>
         <meta name="google-signin-client_id" content="<?php echo $config['google']['client_id']; ?>">
 
-        <title>Pi Day Challenge</title>
+        <title>NHS Service Submission</title>
 
         <meta http-equiv="Content-Type"    content="text/html; charset=ISO-8859-1" />
         <meta http-equiv="keywords"        content="pidaychallenge">
@@ -48,7 +48,6 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
         <link href="css/bootstrap.min.css"                 rel="stylesheet" type="text/css" />
         <link href="css/font-awesome.css"                  rel="styleSheet" type="text/css" />
         <link href="css/piday.css?v=<?php echo rand(); ?>" rel="stylesheet" type="text/css" />
-        <link href="favicon.ico"                           rel="icon">
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -103,14 +102,12 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href=""><span><img src="pi_math.png" alt="Pi Day Challnge" style="width:22px;height:22px;"> = 3.14159265358979...</span></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) { ?>
                             <li><a href="index.php?content=menu">Menu</a></li>
                         <?php } ?>
-                        <li><a href="index.php?content=geniusBoard">Genius Board</a></li>
                         <li><a href="index.php?content=contact">Contact</a></li>
                         <?php if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) { ?>
                             <li><a href="index.php?content=login">Log In</a></li>

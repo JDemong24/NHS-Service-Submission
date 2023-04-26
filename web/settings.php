@@ -30,20 +30,6 @@ $verified = ($row['verified'] == 1);
 <div class="jumbotron col-md-8 col-md-offset-2">
     <form class="form-horizontal" action="javascript:void(0);">
         <div class="form-group">
-            <label class="col-sm-3 control-label" for="challengeYear">Challenge Year:</label>
-            <div class="col-sm-9">
-                <select class="form-control" id="challengeYear" name="challengeYear">
-                    <?php
-
-                    // The first year we support for backward compatibility is hard-coded to 2017
-                    for ($i = 2017; $i <= get_default_challenge_year(); $i++)
-                    {
-                        print '<option value="' . $i . '"' . ($_SESSION['year'] == $i ? 'selected="true"' : '') . '>' . $i . '</option>';
-                    }
-
-                    ?>
-                </select>
-            </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label" for="email">Email Address:</label>
