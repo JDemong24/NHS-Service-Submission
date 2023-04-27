@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS `nhs`;
+
 CREATE DATABASE `nhs` DEFAULT CHARSET=latin1;
 
 USE `nhs`;
@@ -16,3 +18,5 @@ CREATE TABLE `user` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
