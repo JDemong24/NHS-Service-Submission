@@ -20,3 +20,18 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+CREATE TABLE `nhs`.`submissions` (
+  `sub_user_id` INT NOT NULL AUTO_INCREMENT,
+  `sub_date` DATETIME NOT NULL,
+  `sub_first_name` VARCHAR(45) NOT NULL,
+  `sub_last_name` VARCHAR(45) NOT NULL,
+  `sub_supervisor_name` VARCHAR(100) NOT NULL,
+  `sub_supervisor_phone_number` VARCHAR(100) NOT NULL,
+  `sub_service_title` VARCHAR(100) NOT NULL,
+  `sub_service_description` VARCHAR(1000) NOT NULL,
+  `sub_submittee_email` VARCHAR(200) NOT NULL,
+  `sub_supervisor_email` VARCHAR(200) NOT NULL,
+  `sub_grade_level` INT NOT NULL,
+  `sub_hours` INT NOT NULL,
+  PRIMARY KEY (`sub_user_id`),
+  UNIQUE INDEX `ul_user_id_UNIQUE` (`sub_user_id` ASC) VISIBLE);

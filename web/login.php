@@ -46,9 +46,6 @@
             Don't have an account? <a class="btn btn-link" href="index.php?content=register" role="button">Sign Up</a>
         </div>
         <div class="col-xs-12" style="height:10px;"></div>
-        <div class="container col-md-9 col-md-offset-5">
-            <a class="btn btn-link" href="privacy-policy.pdf" role="button">Privacy Policy</a>
-        </div>
     </form>
 </div>
 

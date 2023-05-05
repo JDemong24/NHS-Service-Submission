@@ -107,6 +107,7 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) { ?>
                             <li><a href="index.php?content=menu">Menu</a></li>
+                            <li><a href="index.php?content=list">Your Submissions</a></li>
                         <?php } ?>
                         <li><a href="index.php?content=contact">Contact</a></li>
                         <?php if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) { ?>

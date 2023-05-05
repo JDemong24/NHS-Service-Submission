@@ -49,7 +49,6 @@ SQL;
         mysqli_query($dbh, $sql);
 
         $messageLine1 = 'Thank you, your email address has been verified!';
-        $messageLine2 = 'Now get back to <a href="index.php?content=menu">solving those puzzles</a>!';
     }
     else
     {
