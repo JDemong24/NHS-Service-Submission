@@ -1,14 +1,4 @@
-<?php
-
-/*************************************************************************************************
- * passwordRecovery.php
- *
- * Copyright 2017-2021
- *
- * Password recovery page content. This page is intended to be included in index.php.
- *************************************************************************************************/
-
-?>
+<link rel="stylesheet" href="styles.css">
 
 <div class="jumbotron col-md-8 col-md-offset-2">
     <h2>Reset Password</h2>

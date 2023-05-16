@@ -14,6 +14,7 @@ CREATE TABLE `user` (
   `verified` int NOT NULL DEFAULT '0',
   `verification_hash` varchar(100) DEFAULT NULL,
   `verification_expiration` datetime DEFAULT NULL,
+  `isAdmin` boolean DEFAULT FALSE,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -33,5 +34,6 @@ CREATE TABLE `nhs`.`submissions` (
   `sub_supervisor_email` VARCHAR(200) NOT NULL,
   `sub_grade_level` INT NOT NULL,
   `sub_hours` INT NOT NULL,
+  `sub_status` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`sub_user_id`),
   UNIQUE INDEX `ul_user_id_UNIQUE` (`sub_user_id` ASC) VISIBLE);

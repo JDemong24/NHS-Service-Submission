@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="styles.css">
 <?php
 
 include('library.php');
@@ -22,7 +23,7 @@ $sql = <<<SQL
 INSERT INTO submissions (sub_date, sub_first_name, sub_last_name,
 sub_service_title, sub_service_description, sub_grade_level, sub_hours, sub_supervisor_name,
 sub_supervisor_phone_number, sub_submittee_email, sub_supervisor_email)
-       VALUES ('{$date}', '{$firstname}', '{$lastname}', '{$protitle}', '{$desc}', $grade, $hours, '{$supervisorname}', 
+       VALUES ('{$date}', '{$firstname}', '{$lastname}', '{$protitle}', '{$desc}', '{$grade}', $hours, '{$supervisorname}', 
        '{$supphonenum}', '{$contactEmail}', '{$supemail}')
 SQL;
 

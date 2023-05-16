@@ -23,7 +23,7 @@ $email = mysqli_real_escape_string($dbh, $email);
 $password = mysqli_real_escape_string($dbh, hash_password($password));
 
 $sql = <<<SQL
-SELECT id, display_name
+SELECT id, display_name, isAdmin
   FROM user
  WHERE email = '{$email}'
    AND password = '{$password}'
@@ -42,6 +42,7 @@ if ($count == 1)
     $_SESSION['displayName'] = $row['display_name'];
     $_SESSION['ssoProvider'] = null;
     $_SESSION['authenticated'] = true;
+    $_SESSION['isAdmin'] = $row['isAdmin'];
 
     load_progress(get_default_challenge_year());
 

@@ -1,15 +1,4 @@
-<?php
-
-/*************************************************************************************************
- * login.php
- *
- * Copyright 2017-2023
- *
- * Login page content. This page is intended to be included in index.php.
- *************************************************************************************************/
-
-?>
-
+<link rel="stylesheet" href="styles.css">
 <div class="jumbotron col-md-8 col-md-offset-2">
     <h2>NHS Service Submission Site</h2>
 <?php

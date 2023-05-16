@@ -1,14 +1,5 @@
 <?php
 
-/*************************************************************************************************
- * index.php
- *
- * Copyright 2017-2023
- *
- * Main content container. This page includes the context-specfic content based on the "content"
- * request parameter.
- *************************************************************************************************/
-
 require_once 'library.php';
 
 header("Cache-Control: no-cache, must-revalidate");
@@ -20,7 +11,7 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
     <head>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115397967-1"></script>
-
+        
         <script>
 
         window.dataLayer = window.dataLayer || [];
@@ -48,6 +39,7 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
         <link href="css/bootstrap.min.css"                 rel="stylesheet" type="text/css" />
         <link href="css/font-awesome.css"                  rel="styleSheet" type="text/css" />
         <link href="css/piday.css?v=<?php echo rand(); ?>" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="styles.css">
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,7 +127,9 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
 
         <!-- Main content -->
         <div class="container">
-            <?php include($content . '.php'); ?>
+            <?php 
+            print_r($_SESSION);
+            include($content . '.php'); ?>
         </div>
     </body>
 </html>

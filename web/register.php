@@ -1,14 +1,4 @@
-<?php
-
-/*************************************************************************************************
- * register.php
- *
- * Copyright 2018-2021
- *
- * Register user account page content. This page is intended to be included in index.php.
- *************************************************************************************************/
-
-?>
+<link rel="stylesheet" href="styles.css">
 
 <div class="jumbotron col-md-8 col-md-offset-2">
     <h2>Registration</h2>
