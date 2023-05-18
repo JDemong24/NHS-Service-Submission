@@ -39,7 +39,7 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
         <link href="css/bootstrap.min.css"                 rel="stylesheet" type="text/css" />
         <link href="css/font-awesome.css"                  rel="styleSheet" type="text/css" />
         <link href="css/piday.css?v=<?php echo rand(); ?>" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles.css?v=<?php echo rand(); ?>">
 
         <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,20 +96,20 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul id="navigation"class="nav navbar-nav navbar-right">
                         <?php if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) { ?>
-                            <li><a href="index.php?content=menu">Menu</a></li>
-                            <li><a href="index.php?content=list">Your Submissions</a></li>
+                            <li ><a href="index.php?content=menu">Menu</a></li>
+                            <li class="navigation"><a class="navigation"href="index.php?content=list">Your Submissions</a></li>
                         <?php } ?>
-                        <li><a href="index.php?content=contact">Contact</a></li>
+                        <li class="navigation"><a class="navigation"href="index.php?content=contact">Contact</a></li>
                         <?php if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) { ?>
-                            <li><a href="index.php?content=login">Log In</a></li>
+                            <li ><a class="navigation" href="index.php?content=login">Log In</a></li>
                         <?php } else { ?>
-                            <li><a href="index.php?content=settings">Settings</a></li>
+                            <li class="navigation"><a class="navigation"href="index.php?content=settings">Settings</a></li>
                             <?php if ($_SESSION['ssoProvider'] == "google") { ?>
-                                <li><a href="#" onclick="googleSignOut()">Log Out</a></li>
+                                <li class="navigation"><a class="navigation"href="#" onclick="googleSignOut()">Log Out</a></li>
                             <?php } else { ?>
-                                <li><a href="logout.php">Log Out</a></li>
+                                <li class="navigation"><a class="navigation"href="logout.php">Log Out</a></li>
                             <?php } ?>
                         <?php } ?>
                     </ul>

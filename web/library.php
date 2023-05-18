@@ -54,38 +54,6 @@ verify_authentication();
 $dbh = get_database_connection();
 
 /*
- * Creates a `progress` record for the given challenge year and returns the ID of that new
- * record.
- *
- * $year - the year for the `progress` record to create
- */
-function create_progress($year)
-{
-    global $dbh;
-    $defaultPuzzleStates = array();
-    $challenge = get_challenge($year);
-    foreach ($challenge->puzzle as $puzzle)
-    {
-        $defaultPuzzleStates[] = 0;
-    }
-
-    $defaultPuzzleStatesSerialized = serialize($defaultPuzzleStates);
-
-    $sql = <<<SQL
-    INSERT INTO progress (user_id, year, puzzle_states, completion_time)
-    VALUES ({$_SESSION['userId']}, {$year}, '{$defaultPuzzleStatesSerialized}', null)
-SQL;
-
-    $progressId = 0;
-    if (mysqli_query($dbh, $sql))
-    {
-        $progressId = mysqli_insert_id($dbh);
-    }
-
-    return $progressId;
-}
-
-/*
  * Creates a `puzzle_progress` record for the given progress ID and puzzle ID if one does not
  * already exist. This function returns the ID of the `puzzle_progress` record that was either
  * freshly created or just retrieved.

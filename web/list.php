@@ -1,14 +1,24 @@
 <link rel="stylesheet" href="styles.css">
-<?php
+<script>
+    function save(id, status){
+        // WORK ON THIS NEXT!!
+        var settings = {
+            'async': true,
+            'url': 'api/updateStatus.php?id=' + id + '&status=' + status,
+            'method': 'POST',
+            'headers': {
+                'Cache-Control': 'no-cache'
+            }
+        };
 
-/*************************************************************************************************
- * ticketList.php
- *
- * Content page to display a list of tickets. This page is expected to be contained within
- * index.php.
- *************************************************************************************************/
 
-?>
+        $.ajax(settings).done(function(response) {
+            showAlert('success', 'Status Updated', 'The submission status has been updated  ');
+        }).fail(function(jqXHR) {   
+            showAlert('danger', 'Oops, Error!', 'Something went wrong, try again later.');
+        });
+    }
+</script>
 
 <h2>Submissions</h2>
 
@@ -51,7 +61,7 @@
     while ($row = $result->fetch_assoc())
     {
         echo "<tr>";
-        echo "<td>" . $row['sub_user_id'] . "</td>";
+        echo "<td>" . $row['sub_id'] . "</td>";
         echo "<td>" . $row['sub_date'] . "</td>";
         echo "<td>" . $row['sub_first_name'] . "</td>";
         echo "<td>" . $row['sub_last_name'] . "</td>";
@@ -66,23 +76,27 @@
         if($_SESSION['isAdmin']){
             echo '<td>';
             echo '<div class="mb-3">';
-            echo '<label for="status" class="form-label"></label>';
-            echo '<select class="form-select" name="status">';
-            echo '<option value="1">Pending</option>';
+            echo '<select class="form-select" name="status" onchange="save(' . $row["sub_id"] .', this.value)">';
+            echo '<option value="1" selected=true>Pending</option>';
             echo '<option value="2">Approved</option>';
             echo '<option value="3">Rejected</option>';
             echo '</select>';
             echo '</div>';
             echo '</td>';
         }else{
-            echo "<td>" . $row['sub_status'] . "</td>";
+            if ($row['sub_status']==1){
+                echo "<td class='pending'>Pending</td>";
+            }else if ($row['sub_status']==2){
+                echo "<td class='approved'>Approved</td>";
+            }else if ($row['sub_status']==3){
+                echo "<td class='rejected'>Rejected</td>";
+            } 
         }   
         echo "</tr>";
     }
 
     ?>
-    <form action="list.php" method="POST"><input type="submit"></form>
     </tbody>
 </table>
 
-<a href="index.php?content=menu" class="btn btn-primary" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Add a ticket</a>
+<a href="index.php?content=menu" class="btn btn-primary" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Add a Submission</a>

@@ -22,7 +22,8 @@ CREATE TABLE `user` (
 
 
 CREATE TABLE `nhs`.`submissions` (
-  `sub_user_id` INT NOT NULL AUTO_INCREMENT,
+  `sub_id` INT NOT NULL AUTO_INCREMENT,
+  `sub_user_id` INT NOT NULL,
   `sub_date` DATETIME NOT NULL,
   `sub_first_name` VARCHAR(45) NOT NULL,
   `sub_last_name` VARCHAR(45) NOT NULL,
@@ -35,5 +36,5 @@ CREATE TABLE `nhs`.`submissions` (
   `sub_grade_level` INT NOT NULL,
   `sub_hours` INT NOT NULL,
   `sub_status` INT NOT NULL DEFAULT 1,
-  PRIMARY KEY (`sub_user_id`),
-  UNIQUE INDEX `ul_user_id_UNIQUE` (`sub_user_id` ASC) VISIBLE);
+  PRIMARY KEY (`sub_id`),
+  UNIQUE INDEX `ul_id_UNIQUE` (`sub_id` ASC) VISIBLE);

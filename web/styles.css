@@ -6,6 +6,20 @@
 background-color:darkgoldenrod;
 }
 
-.navbar-collapse {
-color: black;
+
+.pending{
+    color:darkkhaki;
 }
+
+.approved{
+    color: aquamarine;
+}
+
+.rejected{
+    color: crimson;
+}
+
+body{
+    background-color:cornsilk ;
+}
+
