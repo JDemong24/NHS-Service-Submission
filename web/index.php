@@ -85,7 +85,7 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-dark">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
@@ -96,20 +96,22 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul id="navigation"class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right">
                         <?php if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) { ?>
-                            <li ><a href="index.php?content=menu">Menu</a></li>
-                            <li class="navigation"><a class="navigation"href="index.php?content=list">Your Submissions</a></li>
+                            <li><a href="index.php?content=form">Service Form</a></li>
+                            <li><a href="index.php?content=list">Your Submissions</a></li>
                         <?php } ?>
-                        <li class="navigation"><a class="navigation"href="index.php?content=contact">Contact</a></li>
+                        <?php if (isset($_SESSION['authenticated']) && $_SESSION['isAdmin'] && $_SESSION['authenticated']) { ?>
+                            <li><a href="index.php?content=adminList">Admin</a></li>                        <?php } ?>
+                        <li><a href="index.php?content=contact">Contact</a></li>
                         <?php if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) { ?>
-                            <li ><a class="navigation" href="index.php?content=login">Log In</a></li>
+                            <li><a href="index.php?content=login">Log In</a></li>
                         <?php } else { ?>
-                            <li class="navigation"><a class="navigation"href="index.php?content=settings">Settings</a></li>
+                            <li><a href="index.php?content=settings">Settings</a></li>
                             <?php if ($_SESSION['ssoProvider'] == "google") { ?>
-                                <li class="navigation"><a class="navigation"href="#" onclick="googleSignOut()">Log Out</a></li>
+                                <li><a href="#" onclick="googleSignOut()">Log Out</a></li>
                             <?php } else { ?>
-                                <li class="navigation"><a class="navigation"href="logout.php">Log Out</a></li>
+                                <li><a href="logout.php">Log Out</a></li>
                             <?php } ?>
                         <?php } ?>
                     </ul>
@@ -128,7 +130,6 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
         <!-- Main content -->
         <div class="container">
             <?php 
-            print_r($_SESSION);
             include($content . '.php'); ?>
         </div>
     </body>

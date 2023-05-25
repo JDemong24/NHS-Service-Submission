@@ -8,11 +8,11 @@ background-color:darkgoldenrod;
 
 
 .pending{
-    color:darkkhaki;
+    color:darkgoldenrod;
 }
 
 .approved{
-    color: aquamarine;
+    color:rgb(4, 177, 90) ;
 }
 
 .rejected{
@@ -23,3 +23,18 @@ body{
     background-color:cornsilk ;
 }
 
+.nav.navbar-nav.navbar-right li a {
+    color: cornsilk;
+}
+
+.btn.btn-primary{
+    background-color: darkgoldenrod;
+}
+td a {
+    display:block;
+    width:100%;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
+    background-color:rgba(184, 135, 11, 0.488);
+}

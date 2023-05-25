@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="styles.css">
 <script>
     function save(id, status){
-        // WORK ON THIS NEXT!!
+
         var settings = {
             'async': true,
             'url': 'api/updateStatus.php?id=' + id + '&status=' + status,
@@ -51,6 +50,9 @@
     // Build the SELECT statement
     if($_SESSION['isAdmin']){
         $sql = "SELECT * FROM submissions";
+        if(isset($userId)){
+            $sql .= " WHERE sub_user_id=". $userId;
+        }
     }else{
         $sql = "SELECT * FROM submissions WHERE sub_user_id=" . $_SESSION['userId'];
     }
@@ -77,9 +79,9 @@
             echo '<td>';
             echo '<div class="mb-3">';
             echo '<select class="form-select" name="status" onchange="save(' . $row["sub_id"] .', this.value)">';
-            echo '<option value="1" selected=true>Pending</option>';
-            echo '<option value="2">Approved</option>';
-            echo '<option value="3">Rejected</option>';
+            echo '<option value="1" ' . ($row['sub_status']==1 ? 'selected' : '') . '>Pending</option>';
+            echo '<option value="2" ' . ($row['sub_status']==2 ? 'selected' : '') . '>Approved</option>';
+            echo '<option value="3" ' . ($row['sub_status']==3 ? 'selected' : '') . '>Rejected</option>';
             echo '</select>';
             echo '</div>';
             echo '</td>';
@@ -94,9 +96,14 @@
         }   
         echo "</tr>";
     }
-
     ?>
     </tbody>
 </table>
 
-<a href="index.php?content=menu" class="btn btn-primary" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Add a Submission</a>
+<?php
+    $result = $conn->query("SELECT SUM(sub_hours) as total_hours FROM submissions JOIN user on id=sub_user_id WHERE sub_status=2 AND sub_user_id=" . $_SESSION['userId']);
+    $row = $result->fetch_assoc();
+    echo '<p>Total hours: ' . $row['total_hours'] . '</p>';
+?>
+
+<a href="index.php?content=form" class="btn btn-primary" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Add a Submission</a>

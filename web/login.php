@@ -7,12 +7,6 @@
 
     <form class="form-horizontal" action="javascript:void(0);">
         <div class="col-xs-12" style="height:20px;"></div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label" for="email">&nbsp;</label>
-            <div class="col-sm-9 text-center">
-                <div class="g-signin2" data-theme="dark" data-width="300" data-longtitle="true" data-onsuccess="loginGoogleSso">
-            </div>
-        </div>
         <div class="col-xs-12" style="height:20px;"></div>
         <div class="form-group">
             <label class="col-sm-3 control-label" for="email">Email:</label>
@@ -58,34 +52,13 @@ function login() {
         $('#loginButton').prop('disabled', true);
 
         $.ajax(settings).done(function(response) {
-            window.location.replace('index.php?content=menu');
+            window.location.replace('index.php?content=list');
         }).fail(function() {
             showAlert('danger', 'Invalid Login!', 'Check your email address and password and try again.');
         }).always(function() {
             $('#loginButton').prop('disabled', false);
         });
     }
-}
-
-function loginGoogleSso(googleUser) {
-    var settings = {
-        'async': true,
-        'url': 'api/authenticateSso.php?token=' + googleUser.getAuthResponse().id_token + '&provider=google',
-        'method': 'POST',
-        'headers': {
-            'Cache-Control': 'no-cache'
-        }
-    };
-
-    $('#loginButton').prop('disabled', true);
-
-    $.ajax(settings).done(function(response) {
-        window.location.replace('index.php?content=menu');
-    }).fail(function() {
-        showAlert('danger', 'Authentication Error!', 'There was a problem authenticating your account with Google.');
-    }).always(function() {
-        $('#loginButton').prop('disabled', false);
-    });
 }
 
 </script>

@@ -1,7 +1,6 @@
-<link rel="stylesheet" href="styles.css">
 <?php
 
-include('library.php');
+include('../library.php');
 extract($_REQUEST);
 $conn = get_database_connection();
 
@@ -27,14 +26,15 @@ sub_supervisor_phone_number, sub_submittee_email, sub_supervisor_email)
        '{$supphonenum}', '{$contactEmail}', '{$supemail}')
 SQL;
 
+echo $sql;
 // Execute the query and redirect to the list
 if ($conn->query($sql) == TRUE)
 {
-    header('Location: index.php?content=list');
+    http_response_code(200);
 }
 else
 {
-    echo "Error inserting record: " . $conn->error;
+    http_response_code(500);
 }
 
 $conn->close();
