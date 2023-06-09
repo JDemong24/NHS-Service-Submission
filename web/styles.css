@@ -4,6 +4,7 @@
 
 .navbar {
 background-color:darkgoldenrod;
+z-index: 3;
 }
 
 
@@ -38,3 +39,53 @@ td a {
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th{
     background-color:rgba(184, 135, 11, 0.488);
 }
+
+.headText{
+    text-align: center
+}
+
+
+.bannerInner{
+    animation-delay: bannerDrop 4s;
+    animation: bannerDrop 3s;
+    animation-fill-mode: forwards;
+}
+.bannerOuter{
+    animation: bannerDrop 4s;
+    animation-fill-mode: forwards;
+}
+
+.logoFade{
+    animation: logoFade ease 1s;
+}
+
+
+@keyframes bannerDrop {
+    0% {
+        transform: translate(0px, 0px);
+        animation-timing-function:ease-in-out
+    }
+ 
+    50% {
+        transform: translate(0px, 1000px);
+        animation-timing-function:ease-in-out
+    }
+ 
+    100% {
+        transform: translate(0px, 1000px);
+        animation-timing-function:ease-in-out
+    }
+ }
+
+ @keyframes logoFade {
+    0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  
+
+
+    

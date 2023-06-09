@@ -26,13 +26,10 @@
         <tr>
             <th>#</th>
             <th>Date</th>
-            <th>First Name</th>
-            <th>Last Name</th>
             <th>Supervisor Name</th>
             <th>Supervisor Phone Number</th>
             <th>Project Title</th>
             <th>Project Description</th>
-            <th>Email</th>
             <th>Supervisor Email</th>
             <th>Hours Completed</th>
             <th>Grade Level</th>
@@ -48,13 +45,11 @@
     $conn = get_database_connection();
 
     // Build the SELECT statement
-    if($_SESSION['isAdmin']){
-        $sql = "SELECT * FROM submissions";
-        if(isset($userId)){
-            $sql .= " WHERE sub_user_id=". $userId;
-        }
+    $sql = "SELECT * FROM submissions";
+    if($_SESSION['isAdmin'] && isset($userId)){
+        $sql .= " WHERE sub_user_id=". $userId;
     }else{
-        $sql = "SELECT * FROM submissions WHERE sub_user_id=" . $_SESSION['userId'];
+        $sql .= " WHERE sub_user_id=". $_SESSION['userId'];
     }
     // Execute the query and save the results
     $result = $conn->query($sql);
@@ -65,17 +60,14 @@
         echo "<tr>";
         echo "<td>" . $row['sub_id'] . "</td>";
         echo "<td>" . $row['sub_date'] . "</td>";
-        echo "<td>" . $row['sub_first_name'] . "</td>";
-        echo "<td>" . $row['sub_last_name'] . "</td>";
         echo "<td>" . $row['sub_supervisor_name'] . "</td>";
         echo "<td>" . $row['sub_supervisor_phone_number'] . "</td>";
         echo "<td>" . $row['sub_service_title'] . "</td>";
         echo "<td>" . $row['sub_service_description'] . "</td>";
-        echo "<td>" . $row['sub_submittee_email'] . "</td>";
         echo "<td><a href='mailto:". $row['sub_supervisor_email'] . "'>" . $row['sub_supervisor_email'] . "</a></td>";
         echo "<td>" . $row['sub_hours'] . "</td>";
         echo "<td>" . $row['sub_grade_level'] . "</td>";
-        if($_SESSION['isAdmin']){
+        if($_SESSION['isAdmin'] && isset($userId)){
             echo '<td>';
             echo '<div class="mb-3">';
             echo '<select class="form-select" name="status" onchange="save(' . $row["sub_id"] .', this.value)">';
@@ -94,6 +86,9 @@
                 echo "<td class='rejected'>Rejected</td>";
             } 
         }   
+        if($_SESSION['isAdmin'] && isset($userId) && $row['sub_status']==2 || $row['sub_status']==3){
+            
+        }
         echo "</tr>";
     }
     ?>
@@ -101,9 +96,11 @@
 </table>
 
 <?php
-    $result = $conn->query("SELECT SUM(sub_hours) as total_hours FROM submissions JOIN user on id=sub_user_id WHERE sub_status=2 AND sub_user_id=" . $_SESSION['userId']);
-    $row = $result->fetch_assoc();
-    echo '<p>Total hours: ' . $row['total_hours'] . '</p>';
+    if(!(isset($userId))){
+        $result = $conn->query("SELECT SUM(sub_hours) as total_hours FROM submissions JOIN user on id=sub_user_id WHERE sub_status=2 AND sub_user_id=" . $_SESSION['userId']);
+        $row = $result->fetch_assoc();
+        echo '<p>Total hours: ' . $row['total_hours'] . '</p>';
+    }
 ?>
 
 <a href="index.php?content=form" class="btn btn-primary" role="button"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Add a Submission</a>

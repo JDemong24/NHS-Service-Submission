@@ -25,16 +25,31 @@ CREATE TABLE `nhs`.`submissions` (
   `sub_id` INT NOT NULL AUTO_INCREMENT,
   `sub_user_id` INT NOT NULL,
   `sub_date` DATETIME NOT NULL,
-  `sub_first_name` VARCHAR(45) NOT NULL,
-  `sub_last_name` VARCHAR(45) NOT NULL,
   `sub_supervisor_name` VARCHAR(100) NOT NULL,
   `sub_supervisor_phone_number` VARCHAR(100) NOT NULL,
   `sub_service_title` VARCHAR(100) NOT NULL,
   `sub_service_description` VARCHAR(1000) NOT NULL,
-  `sub_submittee_email` VARCHAR(200) NOT NULL,
   `sub_supervisor_email` VARCHAR(200) NOT NULL,
   `sub_grade_level` INT NOT NULL,
   `sub_hours` INT NOT NULL,
   `sub_status` INT NOT NULL DEFAULT 1,
   PRIMARY KEY (`sub_id`),
   UNIQUE INDEX `ul_id_UNIQUE` (`sub_id` ASC) VISIBLE);
+  
+  CREATE TABLE `nhs`.`config` (
+  `cfg_id` INT NOT NULL AUTO_INCREMENT,
+  `cfg_school_start_date` date NOT NULL ,
+  PRIMARY KEY (`cfg_id`),
+  UNIQUE INDEX `ul_id_UNIQUE` (`cfg_id` ASC) VISIBLE);
+  
+  
+  insert into config(cfg_school_start_date)
+  values('2022-09-01');
+  
+-- DROP EVENT IF EXISTS `hours_reset`;
+-- SET GLOBAL event_scheduler = ON;
+-- CREATE EVENT hours_reset
+-- ON SCHEDULE EVERY 1 YEAR
+-- STARTS '2021-05-31 12:14:00'
+-- DO
+-- UPDATE submissions SET sub_hours=0;

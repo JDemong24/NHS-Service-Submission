@@ -85,7 +85,7 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
 
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-dark">
+        <nav class="navbar navbar-dark" id="cover">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
@@ -94,10 +94,12 @@ header("Expires: Thu, 14 Mar 1996 00:00:00 GMT");
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a class="navbar-brand" href=""><span><img src="nhs logo.png" alt="NHS Home" style="width:40px;height:45px;margin-top:-10px;"></span></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (isset($_SESSION['authenticated']) && $_SESSION['authenticated']) { ?>
+                            <li><a href="index.php?content=home">Home</a></li>
                             <li><a href="index.php?content=form">Service Form</a></li>
                             <li><a href="index.php?content=list">Your Submissions</a></li>
                         <?php } ?>

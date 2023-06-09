@@ -1,9 +1,10 @@
 <link rel="stylesheet" href="styles.css">
 <div class="jumbotron col-md-8 col-md-offset-2">
-    <h2>NHS Service Submission Site</h2>
+    <h2 class="headText">NHS Service Submissions</h2>
 <?php
 
 ?>
+    
 
     <form class="form-horizontal" action="javascript:void(0);">
         <div class="col-xs-12" style="height:20px;"></div>
@@ -52,7 +53,7 @@ function login() {
         $('#loginButton').prop('disabled', true);
 
         $.ajax(settings).done(function(response) {
-            window.location.replace('index.php?content=list');
+            window.location.replace('index.php?content=home');
         }).fail(function() {
             showAlert('danger', 'Invalid Login!', 'Check your email address and password and try again.');
         }).always(function() {

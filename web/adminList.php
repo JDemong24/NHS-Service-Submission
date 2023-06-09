@@ -19,14 +19,13 @@
     }
 </script>
 
-<h2>Submissions</h2>
+<h2>User List</h2>
 
 <table class="table table-hover" id="adminTable"  cellspacing="0" style="width:100%;margin-top:30px">
     <thead>
         <tr>
         
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>User</th>
             <th>Hours Completed</th>
             <th>Grade Level</th>
 
@@ -40,11 +39,17 @@
     $conn = get_database_connection();
 
     // Build the SELECT statement
-    if($_SESSION['isAdmin']){
-        $sql = "SELECT * FROM submissions";
-    }else{
-        $sql = "SELECT * FROM submissions WHERE sub_user_id=" . $_SESSION['userId'];
-    }
+    $sql =<<<SQL
+    SELECT display_name, sum(sub_hours) AS hours, sub_grade_level, id
+    FROM user 
+    JOIN submissions
+    ON id=sub_user_id
+    JOIN config
+    WHERE sub_date>=cfg_school_start_date
+    GROUP BY display_name, sub_grade_level, id
+    ORDER BY display_name
+    SQL;
+
     // Execute the query and save the results
     $result = $conn->query($sql);
 
@@ -52,10 +57,9 @@
     while ($row = $result->fetch_assoc())
     {
         echo "<tr>";
-        echo "<td><a href='index.php?content=list'>" . $row['sub_first_name'] . "</a></td>";
-        echo "<td><a href='index.php?content=list'>" . $row['sub_last_name'] . "</a></td>";
-        echo "<td><a href='index.php?content=list'>" . $row['sub_hours'] . "</a></td>";
-        echo "<td><a href='index.php?content=list'>" . $row['sub_grade_level'] . "</a></td>";
+        echo "<td><a href='index.php?content=list&userId=" . $row['id'] . "'>" . $row['display_name'] . "</a></td>";
+        echo "<td><a href='index.php?content=list&userId=" . $row['id'] . "'>" . $row['hours'] . "</a></td>";
+        echo "<td><a href='index.php?content=list&userId=" . $row['id'] . "'>" . $row['sub_grade_level'] . "</a></td>";
         echo "</tr>";
     }
     ?>

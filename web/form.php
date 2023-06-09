@@ -8,16 +8,6 @@
     </div>
     <br>
     <div class="mb-3">
-        <label for="firstname" class="form-label">First Name</label>
-        <input type="text" class="form-control" name="firstname" id="firstname">
-    </div>
-    <br>
-    <div class="mb-3">
-        <label for="lastname" class="form-label">Last Name</label>
-        <input type="text" class="form-control" name="lastname" id="lastname">
-    </div>
-    <br>
-    <div class="mb-3">
         <label for="protitle" class="form-label">Title</label>
         <input type="text" class="form-control" name="protitle" id="protitle">
     </div>
@@ -51,11 +41,6 @@
     </div>
     <br>
     <div class="mb-3">
-        <label for="contactEmail" class="form-label">Email Address</label>
-        <input type="email" class="form-control" name="contactEmail" id="contactEmail">
-    </div>
-    <br>
-    <div class="mb-3">
         <label for="supemail" class="form-label">Supervisor Email Address</label>
         <input type="email" class="form-control" name="supemail" id="supemail">
     </div>
@@ -71,10 +56,6 @@
 function submitForm() {
     if ($('#date').val() == '') {
         showAlert('danger', 'Date Required!', 'Enter the service date and try again!');
-    } else if ($('#firstname').val() == '') {
-        showAlert('danger', 'First Name Required!', 'Enter your first name and try again!');
-    } else if ($('#lastname').val() == '') {
-        showAlert('danger', 'Last Name Required!', 'Enter your last name and try again!');
     } else if ($('#protitle').val() == '') {
         showAlert('danger', 'Project Title Required!', 'Enter the project title and try again!');
     } else if ($('#desc').val() == '') {
@@ -85,22 +66,17 @@ function submitForm() {
         showAlert('danger', 'Supervisor Name Required!', 'Enter the project supervisor\'s name and try again!');
     } else if ($('#supphonenum').val() == '') {
         showAlert('danger', 'Supervisor Phone Number Required!', 'Enter the supervisor\'s phone number and try again!');
-    } else if ($('#contactEmail').val() == '') {
-        showAlert('danger', 'Contact Email Required!', 'Enter your email and try again!');
     } else if ($('#supemail').val() == '') {
         showAlert('danger', 'Supervisor Email Required!', 'Enter the supervisor\'s email and try again!');
     } else {
         var settings = {
             'async': true,
             'url': 'api/insert.php?date=' + $('#date').val() + 
-            '&firstname=' + $('#firstname').val() + 
-            '&lastname=' + $('#lastname').val() +
             '&protitle=' + $('#protitle').val() + 
             '&desc=' + $('#desc').val() +
             '&hours=' + $('#hours').val() +
             '&supervisorname=' + $('#supervisorname').val() +
             '&supphonenum=' + $('#supphonenum').val() +
-            '&contactEmail=' + $('#contactEmail').val() +
             '&grade=' + $('#grade').val() +
             '&supemail=' + $('#supemail').val(),
             'method': 'POST',
